@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+    "name": "Licheat",
+    "version": "1.0",
+    "description": "Prevents blunders on lichess",
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://lichess.org/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        "chess.js",
+        "stockfish-nnue-16-single.js",
+        "stockfish-nnue-16-single.wasm",
+        "nn-5af11540bbfe.nnue"
+    ]
+}
