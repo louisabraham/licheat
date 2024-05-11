@@ -13,6 +13,8 @@ This is a simple program that helps you to cheat on lichess.org
 - Set the HTTPS proxy in Firefox to `localhost:8080`
 - [Install the extension in Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
+The extension probably works with minor modifications in Chrome.
+
 ## Usage
 
 - Go to lichess.org
