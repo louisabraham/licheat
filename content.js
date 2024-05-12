@@ -136,7 +136,7 @@ import(browser.runtime.getURL("./chess.js")).then((module) => {
         console.log("best move evaluation", bestCP);
     };
     const updateLoop = async () => {
-        while (true) {
+        while (getPlayer() != null) {
             await update();
             await sleep(100);
         }
@@ -148,6 +148,7 @@ import(browser.runtime.getURL("./chess.js")).then((module) => {
     board.addEventListener(
         "mousedown",
         async (e) => {
+            if (getPlayer() == null) return;
             if (e.target == board) {
                 x = Math.floor(e.layerX / unit());
                 y = 7 - Math.floor(e.layerY / unit());
@@ -192,7 +193,6 @@ import(browser.runtime.getURL("./chess.js")).then((module) => {
         true
     );
 
-    // listen for space bar
     const clickSquare = async (square) => {
         let x = square.charCodeAt(0) - 97;
         let y = parseInt(square[1]) - 1;
@@ -223,6 +223,7 @@ import(browser.runtime.getURL("./chess.js")).then((module) => {
         board.dispatchEvent(newEvent);
     };
     document.addEventListener("keydown", async (e) => {
+        if (getPlayer() == null) return;
         if (e.code == "Space") {
             e.preventDefault();
             let { from, to } = curBest;
