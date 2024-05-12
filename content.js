@@ -224,6 +224,7 @@ import(browser.runtime.getURL("./chess.js")).then((module) => {
     };
     document.addEventListener("keydown", async (e) => {
         if (getPlayer() == null) return;
+        if (document.activeElement.tagName != "BODY") return;
         if (e.code == "Space") {
             e.preventDefault();
             let { from, to } = curBest;
